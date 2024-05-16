@@ -1,0 +1,39 @@
+package ui
+
+type DialogProps struct {
+	Id          string
+	Title       string
+	Description string
+}
+
+script OpenDialog(id string) {
+	document.getElementById(id).showModal()
+}
+
+script CloseDialog(id string) {
+	document.getElementById(id).close()
+}
+
+templ Dialog(props DialogProps) {
+	<dialog class="bg-transparent open:animate-fade-in" id={ props.Id }>
+		<div class="fixed inset-0" onClick={ CloseDialog(props.Id) }></div>
+		<main class="min-w-96 bg-white rounded-md shadow-sm z-50 relative">
+			<div class="px-6 py-4">
+				<div class="flex items-start justify-between gap-x-2">
+					<h3 class="text-lg font-bold mb-2">{ props.Title }</h3>
+					<button
+						class="text-zinc-500 hover:text-zinc-700 transition focus:outline-none focus:ring-2 focus:ring-zinc-500 rounded-md px-1"
+						autofocus
+						onClick={ CloseDialog(props.Id) }
+					>
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+				<p class="text-sm text-zinc-700">{ props.Description }</p>
+			</div>
+			<div class="px-6 py-4 border-t border-zinc-300">
+				{ children... }
+			</div>
+		</main>
+	</dialog>
+}

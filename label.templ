@@ -1,0 +1,18 @@
+package ui
+
+type LabelProps struct {
+	Id         string
+	Label      string
+	LabelRight func() templ.Component
+}
+
+templ Label(props LabelProps) {
+	<div class="flex items-center justify-between">
+		<label for={ props.Id } class="block text-sm font-medium leading-6 text-black">
+			{ props.Label }
+		</label>
+		if props.LabelRight != nil {
+			@props.LabelRight()
+		}
+	</div>
+}

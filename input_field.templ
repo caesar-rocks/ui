@@ -1,0 +1,48 @@
+package ui
+
+type InputFieldProps struct {
+	DivClass    string
+	Id          string
+	Label       string
+	Error       string
+	LabelRight  func() templ.Component
+	Type        string
+	Placeholder string
+	Readonly    bool
+	Required    bool
+	Value       string
+}
+
+templ InputField(props InputFieldProps) {
+	<div class={ props.DivClass }>
+		if props.Label != "" {
+			@Label(LabelProps{
+				Id:         props.Id,
+				Label:      props.Label,
+				LabelRight: props.LabelRight,
+			})
+		}
+		<div class="mt-1 flex w-full">
+			<input
+				if props.Error != "" {
+					class="flex h-10 w-full rounded-md border border-red-300 placeholder-red-300/80 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+				} else {
+					class="flex h-10 w-full rounded-md border border-zinc-300 px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+				}
+				readonly?={ props.Readonly }
+				required?={ props.Required }
+				if props.Value != "" {
+					value={ props.Value }
+				}
+				id={ props.Id }
+				name={ props.Id }
+				type={ props.Type }
+				placeholder={ props.Placeholder }
+			/>
+			{ children... }
+		</div>
+		if props.Error != "" {
+			<p class="text-sm text-red-500 mt-1">{ props.Error }</p>
+		}
+	</div>
+}
