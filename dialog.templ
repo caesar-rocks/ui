@@ -15,7 +15,7 @@ script CloseDialog(id string) {
 }
 
 templ Dialog(props DialogProps) {
-	<dialog class="bg-transparent open:animate-fade-in" id={ props.Id }>
+	<dialog class="bg-transparent open:animate-in open:fade-in" id={ props.Id }>
 		<div class="fixed inset-0" onClick={ CloseDialog(props.Id) }></div>
 		<main class="min-w-96 bg-white rounded-md shadow-sm z-50 relative">
 			<div class="px-6 py-4">

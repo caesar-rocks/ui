@@ -1,0 +1,20 @@
+/* HTMX-specific styles */
+.htmx-indicator {
+  @apply hidden transition-opacity duration-500 ease-in;
+}
+
+.htmx-request .htmx-indicator {
+  @apply block;
+}
+
+.btn-icon {
+  @apply block;
+}
+
+.htmx-request .btn-icon {
+  @apply hidden transition-opacity duration-500 ease-in;
+}
+
+.htmx-request {
+  @apply opacity-50 cursor-progress;
+}
