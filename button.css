@@ -1,4 +1,4 @@
-/* HTMX-specific styles */
+/* Button-specific styles */
 .htmx-indicator {
   @apply hidden transition-opacity duration-500 ease-in;
 }
