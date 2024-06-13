@@ -1,4 +1,4 @@
-module github.com/caesar-rocks/ui.git
+module github.com/caesar-rocks/ui
 
 go 1.22.2
 
