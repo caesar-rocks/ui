@@ -2,7 +2,7 @@ module github.com/caesar-rocks/ui
 
 go 1.22.2
 
-require github.com/caesar-rocks/core v0.0.6
+require github.com/caesar-rocks/core v0.0.8
 
 require (
 	github.com/a-h/templ v0.2.697 // indirect

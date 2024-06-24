@@ -22,23 +22,23 @@ func New(level string, message string) Toast {
 	return Toast{level, message}
 }
 
-func Info(ctx *caesar.CaesarCtx, message string) {
+func Info(ctx *caesar.Context, message string) {
 	New(INFO, message).SetHXTriggerHeader(ctx)
 }
 
-func Success(ctx *caesar.CaesarCtx, message string) {
+func Success(ctx *caesar.Context, message string) {
 	New(SUCCESS, message).SetHXTriggerHeader(ctx)
 }
 
-func Warning(ctx *caesar.CaesarCtx, message string) {
+func Warning(ctx *caesar.Context, message string) {
 	New(WARNING, message).SetHXTriggerHeader(ctx)
 }
 
-func Danger(ctx *caesar.CaesarCtx, message string) {
+func Danger(ctx *caesar.Context, message string) {
 	New(DANGER, message).SetHXTriggerHeader(ctx)
 }
 
-func (t Toast) SetHXTriggerHeader(ctx *caesar.CaesarCtx) {
+func (t Toast) SetHXTriggerHeader(ctx *caesar.Context) {
 	eventMap := map[string]Toast{}
 	eventMap["toast"] = t
 	jsonData, err := json.Marshal(eventMap)
